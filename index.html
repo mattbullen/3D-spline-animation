@@ -1,32 +1,36 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>3d-spline-animation by mattbullen</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="3d-spline-animation : " />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>3d-spline-animation</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header class="without-description">
-        <h1>3d-spline-animation</h1>
-        <p></p>
-        <p class="view"><a href="https://github.com/mattbullen/3D-spline-animation">View the Project on GitHub <small>mattbullen/3D-spline-animation</small></a></p>
-        <ul>
-          <li><a href="https://github.com/mattbullen/3D-spline-animation/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/mattbullen/3D-spline-animation/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/mattbullen/3D-spline-animation">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mattbullen/3D-spline-animation">View on GitHub</a>
+
+          <h1 id="project_title">3d-spline-animation</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mattbullen/3D-spline-animation/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mattbullen/3D-spline-animation/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h2>
 <a name="3d-spline-animation" class="anchor" href="#3d-spline-animation"><span class="octicon octicon-link"></span></a>3D Spline Animation</h2>
 
@@ -34,20 +38,25 @@
 <a name="live-demo-httpbullenio3d-spline-animationdemohtml" class="anchor" href="#live-demo-httpbullenio3d-spline-animationdemohtml"><span class="octicon octicon-link"></span></a>LIVE DEMO: <a href="http://bullen.io/3d-spline-animation/demo.html">http://bullen.io/3d-spline-animation/demo.html</a>
 </h5>
 
-<p>Hand-rolled demo for animating ordinary HTML elements with plain, no-library Javascript. It can make use of almost any CSS property that makes sense to animate, including fonts and the 3D properties. Each CSS  property animates across its own randomly-generated spline (anywhere from a cubic bézier to a 10th or 12th degree spline).</p>
+<p>CODING ISSUE: CSS3 transitions/easing patterns have their limits. It's typically difficult to transition or animate an element with anything more complicated than a cubic spline, if you're not using a <code>&lt;canvas&gt;</code> element or setting up an intricate series of keyframes. Using a <code>&lt;canvas&gt;</code> element, however, typically means that links, photos, HTML, etc. will not be easy, or even possible, to use inside the <code>&lt;canvas&gt;</code> element. More robust libraries such as OpenGL or WebGL carry too much overhead for a small site or one-page app. So, if you want an element to swoop across the page along a complex curve, or transition multiple colors in a unique way, that's going to be a challenge with out-of-the-box coding.</p>
 
-<p>Animating a <code>&lt;div&gt;</code> (or similar element) this way lets you preserve links, photos, etc. inside the animated element, without needing to get into the intricacies of using a <code>&lt;canvas&gt;</code> element or keyframes, and without taking on the overhead of using one of the more complicated animation libraries.</p>
+<p>HOW IT WORKS: The demo parses each element's computed style, organizes each CSS3 property to animate or transition into arrays and a master queue, then loops repeatedly through the final animation queue, inlining styles on JS-generated <code>&lt;div&gt;</code> elements. It can record the average animation time and the easing deltas, and save a snapshot of each element's animation details to a server in JSON format.</p>
 
-<p>This would probably be most useful for adding a few fast, lightweight animated elements to an otherwise static page. It has not been tested for heavier lifting like HTML game design or animated scientific graphing, but that might be the next place to take it.</p>
+<p>RESOURCES USED: Plain JavaScript. For the matrix math, I used a few portions of <a href="https://github.com/toji/gl-matrix">gl-matrix</a>, mostly because there aren't too many unique ways to do matrix math in JavaScript, and the functions in this library run very quickly and reliably. In terms of the CSS3 parsing and animation engine, it's my own work.</p>
 
-<p>In the <a href="http://bullen.io/3d-spline-animation/demo.html">live demo</a> page, click the "ready!" button, which sets 50 <code>&lt;div&gt;</code> elements into simultaneous animation across several CSS properties (top, left, background color, border radius, and rotate X, Y, Z). The console log tracks the average animation time for each element. So far, in newer browsers, that has averaged around 16.5ms on my machines.</p>
+<p>THE DEMO: In the <a href="http://bullen.io/3d-spline-animation/demo.html">live demo</a> page, click the "ready!" button, which sets 50 <code>&lt;div&gt;</code> elements into simultaneous animation across several CSS properties (top, left, background color, border radius, and rotate X, Y, Z). The console log tracks the average animation time for each element. So far, in newer browsers, that has averaged around 16.5ms on my machines.</p>
       </section>
     </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/mattbullen">mattbullen</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">3d-spline-animation maintained by <a href="https://github.com/mattbullen">mattbullen</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
