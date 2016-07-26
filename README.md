@@ -4,4 +4,4 @@ Regular CSS3 transitions/easing patterns are limited in scope, meaning, if you w
 
 Once you open the page, click the "ready!" button, which sets 50 `<div>` elements into simultaneous animation across several CSS properties (top, left, background color, border radius, and rotate X, Y, Z). The console log tracks the average animation time for each element. So far, in newer browsers, that has averaged around 16.5ms on my system.
 
-##### Try it out: http://bullen.io/3d-spline-animation/demo.html
+##### Try it out: www.matthewbullen.net/3d-spline-animation/demo.html
